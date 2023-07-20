@@ -18,6 +18,10 @@ jobs:
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
+      CLOUDFRONT: ${{ secrets.AWS_DISTRIBUTION_ID }}
+      VERSION: ${{ github.ref_name }}
     permissions:
       contents: read
       packages: write
@@ -27,8 +31,15 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - run: npm ci
       - run: npm run build
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: aws s3 sync ./lib s3://$BUCKET/libs/react-theme/$VERSION --delete
