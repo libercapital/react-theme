@@ -1,6 +1,6 @@
 {
   "name": "@libercapital/react-theme",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "license": "UNLICENSED",
   "main": "./lib/cjs/main.js",
   "module": "./lib/esm/main.js",
@@ -10,15 +10,14 @@
     "node": ">=16.14.0"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vite": "^4.4.5"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0"
