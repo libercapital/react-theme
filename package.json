@@ -1,6 +1,6 @@
 {
   "name": "@libercapital/react-theme",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "license": "UNLICENSED",
   "main": "./lib/cjs/main.js",
   "module": "./lib/esm/main.js",

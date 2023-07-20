@@ -13,4 +13,9 @@ export default defineConfig({
     copyPublicDir: false,
     sourcemap: true,
   },
+  define: {
+    'process.env': {
+      NODE_ENV: '"production"',
+    },
+  }
 });
