@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   mode: "production",
@@ -7,6 +8,7 @@ export default defineConfig({
       entry: "src/main.ts",
       formats: ["es", "cjs", "umd"],
       name: "main",
+      fileName: (format) => `main.${format}.js`,
     },
     outDir: "lib",
     minify: true,
@@ -15,5 +17,6 @@ export default defineConfig({
   },
   define: {
     'process.env.NODE_ENV': '"production"',
-  }
+  },
+  plugins: [dts()],
 });
