@@ -303,7 +303,7 @@ export interface ThemeColor {
   secondary?: PaletteColorOptions;
 }
 
-export default (colors: ThemeColor = {}) => {
+const getTheme = (colors: ThemeColor = {}) => {
   if (!baseTheme.palette) {
     throw new Error('Missing base palette in theme');
   }
@@ -318,3 +318,5 @@ export default (colors: ThemeColor = {}) => {
 
   return createTheme(baseTheme);
 }
+
+export default getTheme
