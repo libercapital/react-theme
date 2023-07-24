@@ -304,7 +304,7 @@ export interface ThemeColor {
 }
 
 
-export default function getTheme(colors: ThemeColor = {})  {
+export const  getTheme = (colors: ThemeColor = {}) => {
   if (!baseTheme.palette) {
     throw new Error('Missing base palette in theme');
   }
