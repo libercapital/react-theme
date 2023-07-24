@@ -9,7 +9,7 @@ import {
   Breakpoints,
 } from '@mui/material';
 
-export const PRIMARY_FONT = "'Public Sans', Arial, sans-serif";
+const PRIMARY_FONT = "'Public Sans', Arial, sans-serif";
 export const SECONDARY_FONT = "'Sora', Arial, sans-serif";
 export const MONOSPACE_FONT = "'JetBrains Mono', monospace";
 
@@ -298,7 +298,7 @@ const baseTheme: ThemeOptions = {
   transitions,
 }
 
-interface ThemeColor {
+export interface ThemeColor {
   primary?: PaletteColorOptions;
   secondary?: PaletteColorOptions;
 }
@@ -319,4 +319,4 @@ export const  getTheme = (colors: ThemeColor = {}) => {
   return createTheme(baseTheme);
 }
 
-export default ThemeColor
+export default PRIMARY_FONT
