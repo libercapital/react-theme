@@ -9,15 +9,15 @@ import {
   Breakpoints,
 } from '@mui/material';
 
-export const PRIMARY_FONT = "'Public Sans', Arial, sans-serif";
-export const SECONDARY_FONT = "'Sora', Arial, sans-serif";
-export const MONOSPACE_FONT = "'JetBrains Mono', monospace";
+const PRIMARY_FONT = "'Public Sans', Arial, sans-serif";
+const SECONDARY_FONT = "'Sora', Arial, sans-serif";
+const MONOSPACE_FONT = "'JetBrains Mono', monospace";
 
-export const HOVER_OPACITY = 0.15;
-export const SELECTED_OPACITY = 0.3;
-export const DISABLED_OPACITY = 0.4;
-export const FOCUS_OPACITY = 0.15;
-export const ACTIVATED_OPACITY = 0.6;
+const HOVER_OPACITY = 0.15;
+const SELECTED_OPACITY = 0.3;
+const DISABLED_OPACITY = 0.4;
+const FOCUS_OPACITY = 0.15;
+const ACTIVATED_OPACITY = 0.6;
 
 const breakpoints: Partial<Breakpoints> = {
   keys: ['xs', 'sm', 'md', 'lg', 'xl'],
@@ -298,13 +298,12 @@ const baseTheme: ThemeOptions = {
   transitions,
 }
 
-export interface ThemeColor {
+export default interface ThemeColor {
   primary?: PaletteColorOptions;
   secondary?: PaletteColorOptions;
 }
 
-
-export const  getTheme = (colors: ThemeColor = {}) => {
+const  getTheme = (colors: ThemeColor = {}) => {
   if (!baseTheme.palette) {
     throw new Error('Missing base palette in theme');
   }
@@ -318,4 +317,16 @@ export const  getTheme = (colors: ThemeColor = {}) => {
   }
 
   return createTheme(baseTheme);
+}
+
+export {
+  PRIMARY_FONT,
+  SECONDARY_FONT,
+  MONOSPACE_FONT,
+  HOVER_OPACITY,
+  SELECTED_OPACITY,
+  DISABLED_OPACITY,
+  FOCUS_OPACITY,
+  ACTIVATED_OPACITY,
+  getTheme
 }
