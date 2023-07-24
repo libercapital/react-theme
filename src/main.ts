@@ -318,5 +318,3 @@ export const  getTheme = (colors: ThemeColor = {}) => {
 
   return createTheme(baseTheme);
 }
-
-export default PRIMARY_FONT
