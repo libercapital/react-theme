@@ -41,5 +41,5 @@ jobs:
       - run: npm run build
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: aws s3 sync ./lib s3://$BUCKET/libs/react-theme/$VERSION --delete
