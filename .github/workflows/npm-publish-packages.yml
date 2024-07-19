@@ -28,7 +28,6 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
           scope: "@libercapital"
-      - name: Deploy on npm
       - run: npm ci
       - run: npm run build
       - run: npm publish --access public
