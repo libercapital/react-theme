@@ -94,7 +94,7 @@ const palette: Partial<Palette> = {
   contrastThreshold: 4.5,
   tonalOffset: 0.2,
   text: {
-    primary: '#464F61',
+    primary: '#2B354A',
     secondary: '#506286',
     disabled: '#9AAACB',
   },
